@@ -1,0 +1,56 @@
+import armas.*
+import elementos.*
+
+describe "Test de Elementos" {
+  test "Aurora inicia con vida" {
+    assert.equals(true, aurora.estaVida())
+  }
+  
+  test "Aurora muere al ser atacada por jabalina" {
+    jabalina.usarEn(aurora)
+    assert.equals(false, aurora.estaVida())
+  }
+  
+  test "Aurora es atacada con la ballesta pero sigue con vida" {
+    ballesta.usarEn(aurora)
+    assert.equals(true, aurora.estaVida())
+  }
+  
+  test "Aurora recopensa por trabajo" {
+    assert.equals(15, aurora.recompensaPorTrabajo())
+  }
+  
+  test "Castillo inicia con defensa de 150" {
+    assert.equals(150, castillo.defensa())
+  }
+  
+  test "Castillo es atacado con jabalina y le baja la defensa" {
+    const defensaInicial = castillo.defensa()
+    jabalina.usarEn(castillo)
+    assert.equals(defensaInicial - jabalina.potencia(), castillo.defensa())
+  }
+  
+  test "Castillo es atacado con balllesta y le baja la defensa" {
+    const defensaInicial = castillo.defensa()
+    ballesta.usarEn(castillo)
+    assert.equals(defensaInicial - ballesta.potencia(), castillo.defensa())
+  }
+  
+  test "castillo recopensa por trabajo" {
+    assert.equals(castillo.defensa() / 5, castillo.recompensaPorTrabajo())
+  }
+  
+  test "Tipa inicia con una altura de 8" {
+    assert.equals(8, tipa.altura())
+  }
+  
+  test "Tipa crece al recibir trabajo" {
+    const alturaInicial = tipa.altura()
+    tipa.recibirTrabajo()
+    assert.equals(alturaInicial + 1, tipa.altura())
+  }
+  
+  test "Tipa recompensa por trabajo" {
+    assert.equals(tipa.altura() * 2, tipa.recompensaPorTrabajo())
+  }
+}

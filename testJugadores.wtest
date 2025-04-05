@@ -1,0 +1,30 @@
+import armas.*
+import elementos.*
+import jugadoresPersonajes.*
+
+describe "Test de Jugadores" {
+  test "Luisa inicia sin personaje activo" {
+    assert.equals(null, luisa.personaje())
+  }
+  
+  test "Luisa asignar personaje" {
+    luisa.asignarPersonaje(mario)
+    assert.equals(mario, luisa.personaje())
+  }
+  
+  test "Luisa manda a mario a trabajar en el castillo " {
+    luisa.asignarPersonaje(mario)
+    luisa.aparece(castillo)
+    assert.equals(castillo.recompensaPorTrabajo(), mario.valorRecolectado)
+  }
+  
+  test "Luisa manda a floki ataca el castillo" {
+    const defensaInicialCastillo = castillo.defensa()
+    luisa.asignarPersonaje(floki)
+    luisa.aparece(castillo)
+    assert.equals(
+      defensaInicialCastillo - floki.arma().potencia(),
+      castillo.defensa()
+    )
+  }
+}

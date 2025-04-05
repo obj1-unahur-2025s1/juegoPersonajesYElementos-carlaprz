@@ -1,0 +1,31 @@
+import armas.*
+import elementos.*
+
+describe "Test de Armas" {
+  test "Jabalina cargada inicial" {
+    assert.equals(true, jabalina.estaCargada())
+  }
+  
+  test "Usar Jabalina" {
+    jabalina.usarEn(castillo)
+    assert.equals(false, jabalina.estaCargada())
+  }
+  
+  test "ballesta cargada inicial" {
+    assert.equals(true, ballesta.estaCargada())
+  }
+  
+  test "Usar ballesta 10 veces" {
+    ballesta.usarEn(castillo)
+    ballesta.usarEn(castillo)
+    ballesta.usarEn(castillo)
+    ballesta.usarEn(castillo)
+    ballesta.usarEn(castillo)
+    ballesta.usarEn(castillo)
+    ballesta.usarEn(castillo)
+    ballesta.usarEn(castillo)
+    ballesta.usarEn(castillo)
+    ballesta.usarEn(castillo)
+    assert.equals(false, ballesta.estaCargada())
+  }
+}
