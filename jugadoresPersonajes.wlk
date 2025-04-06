@@ -25,7 +25,7 @@ object floki {
   }
   
   method encontrar(elemento) {
-    if (arma.estaCargada()) arma.usarEn(elemento)
+    arma.usarEn(elemento)
   }
 }
 
@@ -48,6 +48,8 @@ object mario {
   }
   
   method hayUltimoElemento() = ultimoElemento != null
+  
+  method valorRecolectado() = valorRecolectado
   
   method esFeliz() = (valorRecolectado >= 50) || (self.hayUltimoElemento() && (ultimoElemento.altura() > 10))
 }

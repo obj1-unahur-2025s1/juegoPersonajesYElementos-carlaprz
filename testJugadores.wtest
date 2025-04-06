@@ -12,10 +12,11 @@ describe "Test de Jugadores" {
     assert.equals(mario, luisa.personaje())
   }
   
-  test "Luisa manda a mario a trabajar en el castillo " {
+  test "Luisa manda a mario a trabajar en el castillo" {
     luisa.asignarPersonaje(mario)
+    assert.equals(0, mario.valorRecolectado())
     luisa.aparece(castillo)
-    assert.equals(castillo.recompensaPorTrabajo(), mario.valorRecolectado)
+    assert.equals(mario.valorRecolectado(), castillo.recompensaPorTrabajo())
   }
   
   test "Luisa manda a floki ataca el castillo" {

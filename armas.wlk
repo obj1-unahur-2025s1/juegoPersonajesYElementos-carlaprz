@@ -4,8 +4,10 @@ object ballesta {
   method potencia() = 4
   
   method usarEn(elemento) {
-    elemento.recibirAtaque(self.potencia())
-    flechas -= 1
+    if (self.estaCargada()) {
+      elemento.recibirAtaque(self.potencia())
+      flechas -= 1
+    }
   }
   
   method estaCargada() = flechas > 0
@@ -23,7 +25,9 @@ object jabalina {
   method estaCargada() = cargada
   
   method usarEn(elemento) {
-    elemento.recibirAtaque(self.potencia())
-    self.descargar()
+    if (self.estaCargada()) {
+      elemento.recibirAtaque(self.potencia())
+      self.descargar()
+    }
   }
 }
