@@ -42,7 +42,7 @@ object aurora {
 object tipa {
   var altura = 8
   
-  method altura() = 20
+  method altura() = altura
   
   method crecer(numero) {
     altura += numero

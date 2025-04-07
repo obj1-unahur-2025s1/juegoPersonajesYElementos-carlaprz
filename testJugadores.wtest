@@ -14,9 +14,10 @@ describe "Test de Jugadores" {
   
   test "Luisa manda a mario a trabajar en el castillo" {
     luisa.asignarPersonaje(mario)
+    const valorARecolectar = castillo.recompensaPorTrabajo()
     assert.equals(0, mario.valorRecolectado())
     luisa.aparece(castillo)
-    assert.equals(mario.valorRecolectado(), castillo.recompensaPorTrabajo())
+    assert.equals(mario.valorRecolectado(), valorARecolectar)
   }
   
   test "Luisa manda a floki ataca el castillo" {
